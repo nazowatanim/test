@@ -67,8 +67,13 @@ def PID_Info():
         pid = int(data['pid'])
         p = psutil.Process(pid)
         a=p.name()
+        b=p.status()
+        c=p.cpu_percent(interval=1.0)
+        d=p.memory_info()
+        e=p.exe()
         #z=psutil.sensors_battery()
-        return('PID Name: '+str(a))
+        return('name:'+str(a)+', status:'+str(b)+', cpu:'+str(c)+'%'+'\n'+'memory_info:'+str(d)+'\n'+'command:'+str(e))
+        #return('name:'+str(a)+', status: '+str(b))#+', cpu_percent: '+str(c))#+', noof cpu: '+str(d)+', memory_info: '+str(e))
     except requests.exceptions.HTTPError:
         return ('so such PID is running')
 
