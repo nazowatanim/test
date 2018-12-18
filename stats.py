@@ -33,11 +33,11 @@ def memory():
 @app.route("/network", methods=['GET'])
 def network():
     try:
-        x=psutil.net_io_counters(pernic=True)
+        #x=psutil.net_io_counters(pernic=True)
         y=psutil.net_if_addrs()
         z=psutil.net_if_stats()
         #a=psutil.users()
-        return('network info : '+str(x)+'\n'+'network address: '+str(y)+'\n'+'Interface stats: '+str(z))#+'\n'+'users: '+str(a))
+        return('network address: '+str(y)+'\n'+'Interface stats: '+str(z))#+'\n'+'users: '+str(a))
     except requests.exceptions.HTTPError:
         pass
 
